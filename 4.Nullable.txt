@@ -1,0 +1,46 @@
+﻿using System;
+
+namespace Nullable
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //value types are non-nullable
+            //int? j=0; j=null
+            //bool AreYouOkay=true/false;
+            //bool? AreYouOkay = null;
+            //reference types are nullable
+            // string Name=null;
+            bool? AreYouMajor = null;
+           // Console.WriteLine((AreYouOkay==null) ? "Enter the value" : "Valid characters entered");
+           if(AreYouMajor == true)
+            {
+                Console.WriteLine("you are major");
+            }
+           else if (AreYouMajor == false)
+            {
+                Console.WriteLine("you are not major");
+            }
+            else
+            {
+                Console.WriteLine("Enter the valid data");
+            }
+
+            //Null coalescing operator ??
+            int? TicketsonSale = null;
+            int AvailableTickets;
+            //if (TicketsonSale == null)
+            //{
+            //    AvailableTickets = 0;
+            //}
+            //else
+            //{
+            //    AvailableTickets = TicketsonSale.Value;
+            //    //implicit and explicit conversion (int)TicketsonSale
+            //}
+            AvailableTickets = TicketsonSale ?? 0;
+            Console.WriteLine("Available Tickets {0}", AvailableTickets);
+        }
+    }
+}
