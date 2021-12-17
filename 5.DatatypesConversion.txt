@@ -1,0 +1,55 @@
+﻿using System;
+
+namespace DatatypesConversion
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //implicit conversion - done by the compiler when there is no loss of information when the conversion is done
+            //when there is no possibility of throwing exceptions during the conversion
+            int i = 100;
+            float f = i;
+            Console.WriteLine("Implicit conversion {0}",f);
+
+            //explicit conversion - when the compiler throws an overflowing exception when the conversion is happening
+            //can be done in two ways by using cast operator
+            float f1 = 123.45f;
+            int i1 = (int)f1;
+            Console.WriteLine("Explicit conversion {0}", i1);
+
+            //explicit conversion using convert class
+            float f2 = 678.90f;
+            int i2 = Convert.ToInt32(f2);
+            Console.WriteLine("Explicit conversion {0}", i2);
+
+            //gives an negative result
+            float f4 = 1233333333333333333333333.777777777777777f;
+            int i4 = (int)f4;
+            Console.WriteLine("Explicit conversion {0}", i4);
+
+            //gives an error since f3 is bigger than i3
+            //float f3 = 1233333333333333333333333.777777777777777f;
+            //int i3 = Convert.ToInt32(f3);
+            //Console.WriteLine("Explicit conversion {0}", i3);
+
+            //parse method for converting string to int
+            string number = "1100";
+            int i5 = int.Parse(number);
+            Console.WriteLine("explicit conversion from string to int {0}", i5);
+
+            //try parse method to check whether the string is valid number
+            string number1 = "1100TG";
+            int Result = 0;
+            bool isConversion = int.TryParse(number1, out Result);
+            if (isConversion)
+            {
+                Console.WriteLine("try parse method of string to int {0}", Result);
+            }
+            else
+            {
+                Console.WriteLine("please enter a valid number");
+            }
+        }
+    }
+}
