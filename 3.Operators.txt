@@ -1,0 +1,57 @@
+﻿using System;
+
+namespace _4.Operators
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //assignment operator =
+            int a = 1;
+            bool b = false;
+            //arithmetic operators +,-,*,/(quotient),%(remainder)-mod
+            int c = 2;
+            int d = 3;
+            int e = c + d;
+            int f = d - c;
+            int g = d * c;
+            float h = d / c;
+            float i = d % c;
+            //comparison operator ==,!=,<,>
+            if(c==2)
+            {
+                if (d != 4)
+                {
+                    Console.WriteLine(c);
+                    Console.WriteLine(d);
+                }
+            }
+            //conditional operator &&, ||
+            if(c==3 && d==3){
+                Console.WriteLine("input are ok");
+            }
+            if (c!=4 || d != 5)
+            {
+                Console.WriteLine("hello input");
+            }
+        //Ternary operator ?:
+            int number = 15;
+            bool isNumber;
+            if (number == 10) 
+            { 
+                isNumber = true; 
+            }
+            else
+            {
+                isNumber = false;
+            }
+
+            int number1 = 20;
+            bool isNumber1;
+            isNumber1 = number1 == 20 ? true : false;
+
+            Console.WriteLine("Number is {0}", isNumber);
+            Console.WriteLine("Number is {0}", isNumber1);
+        }
+    }
+}
