@@ -1,0 +1,34 @@
+﻿using System;
+
+namespace Built_inTypes
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //boolean type only for true or false
+            bool isValuable = true;
+            Console.WriteLine(isValuable);
+            //sbyte/byte - signed/unsigned 8 bit integer
+            //short/ushort - signed/unsigned 16 bit integer
+            //int/uint - signed/unsigned 32 bit integer
+            //long/ulong - signed/unsigned 64 bit integer
+            Console.WriteLine("Minimum for int {0}", int.MinValue);
+            Console.WriteLine("Maximum for int {0}", int.MaxValue);
+            //floating data types - float, double
+            Console.WriteLine("Minimum for float {0}", float.MinValue);
+            Console.WriteLine("Maximum for float {0}", float.MaxValue);
+            float floatVariable = 1.23f;
+            Console.WriteLine(floatVariable);
+            decimal decimalVariable = 12.2345m;
+            Console.WriteLine(decimalVariable);
+            //string is enclosed in double quotes
+            //use escape sequence character to print special character 
+            //use verbatim literal @ in the prefix
+            string path = "c:\\desktop";
+            Console.WriteLine(path);
+            string path1 = @"c:\desktop\newfolder";
+            Console.WriteLine(path1);
+        }
+    }
+}
