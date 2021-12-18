@@ -1,0 +1,57 @@
+﻿using System;
+
+namespace Methodhiding
+{
+    public class Employee
+    {
+        public string firstName;
+        public string lastName;
+
+        public void printFullName()
+        {
+            Console.WriteLine(firstName + " " + lastName);
+        }
+    }
+
+    public class PartTimeEmployee : Employee
+    {
+        //pte.printFullName() - will only call this method not from the parent method it is called method hiding
+        //use new keyword to hide the base class member
+        public new void printFullName()
+        {
+            //to call the base class method
+            //base.printFullName();
+
+            Console.WriteLine(firstName + " " + lastName +" -contract");
+        }
+    }
+
+    public class FullTimeEmployee : Employee
+    {
+
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            PartTimeEmployee pte = new PartTimeEmployee();
+            pte.firstName = "Lakshman";
+            pte.lastName = "Jothi";
+            pte.printFullName();
+            //typecast method to call the base class function
+            ((Employee)pte).printFullName();
+
+            //another way to call the base class method
+            //parent class reference variables can point to child class reference variables
+            Employee pte1 = new PartTimeEmployee();
+            pte1.firstName = "Lakshman from Base";
+            pte1.lastName = "Jothi from base";
+            pte1.printFullName();
+
+            FullTimeEmployee fte = new FullTimeEmployee();
+            fte.firstName = "Santhanalakshmi";
+            fte.lastName = "Rajagopal";
+            fte.printFullName();
+        }
+    }
+}
