@@ -1,0 +1,73 @@
+﻿using System;
+
+namespace SwitchStatement
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Mutliple if else statement can be replaced with switch statement
+            Console.WriteLine("Enter a Number");
+            int userNumber = int.Parse(Console.ReadLine());
+            switch (userNumber)
+            {
+                case 10:
+                case 11:
+                    Console.WriteLine("Entered number is 10 or 11");
+                    break;
+                case 20:
+                    Console.WriteLine("Entered number is 20");
+                    break;
+                case 30:
+                    Console.WriteLine("Entered number is 30");
+                    break;
+                case 40:
+                    Console.WriteLine("Entered number is 40");
+                    break;
+                default:
+                    Console.WriteLine("Entered number is not from 10,20,30,40");
+                    break;
+            }
+
+            //Second Switch case example
+            int TotalCoffeeCost = 0;
+        //label is used along with the goto statement
+        start:
+            Console.WriteLine("1-Small, 2-Medium, 3-Large");
+            int UserChoice = int.Parse(Console.ReadLine());
+            switch (UserChoice)
+            {
+                case 1:
+                    TotalCoffeeCost += 1;
+                    break;
+                case 2:
+                    TotalCoffeeCost += 2;
+                    break;
+                case 3:
+                    TotalCoffeeCost += 3;
+                    break;
+                default:
+                    Console.WriteLine("Your choice {0} is invalid", UserChoice);
+                    goto start;
+            }
+            Console.WriteLine("Total Bill amount {0}", TotalCoffeeCost);
+        startagain:
+            Console.WriteLine("Do you want to buy another coffee Yes or No");
+            string UserDecision = Console.ReadLine();
+
+            switch (UserDecision.ToUpper())
+            {
+                case "YES":
+                    //start is the label where the menu starts again
+                    goto start;
+                case "NO":
+                    break;
+                default:
+                    Console.WriteLine("Your choice is invalid {0}",UserDecision);
+                    goto startagain;
+            }
+            Console.WriteLine("Thank you for shopping with us");
+            Console.WriteLine("Total Bill amount {0}", TotalCoffeeCost);
+        }
+    }
+}
