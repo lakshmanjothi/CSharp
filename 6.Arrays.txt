@@ -1,0 +1,20 @@
+﻿using System;
+
+namespace Arrays
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            /*Array is a collection of similiar data type
+            strongly typed - integer array can store only the integer*/
+            //integer array
+            ///XML comment like ///<param="Id">Id of the account</param>
+            int[] EvenNumbers = new int[3];
+            EvenNumbers[0] = 2;
+            EvenNumbers[1] = 4;
+            EvenNumbers[2] = 6;
+            Console.WriteLine(EvenNumbers[1]);
+        }
+    }
+}
