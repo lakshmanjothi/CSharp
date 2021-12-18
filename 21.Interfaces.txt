@@ -1,0 +1,50 @@
+﻿using System;
+
+namespace Interfaces
+{
+    //Interfaces are created using interface keyword 
+    //and contains properties, methods, delegates or events but only declarations and no implemntations
+    interface ICustomer
+    {
+        //interface members are public by default - donot allow explicit access modifier 
+        //interface cannot have fields
+        void printCustomer();
+    }
+
+    //interface inherits from other interface
+    interface ISupplier : ICustomer
+    {
+        void printSupplier();
+    }
+
+    //class can inherit one or more interface and it should provide implement the interface ICustomer method
+    //multiple interface inheritance is possible but not multiple class inheritance
+    //should provide implementation of all members in the inheritance chain
+    class Customer : ISupplier
+    {
+        //signature of the method in the class should match the signature of the method in interface
+        public void printCustomer()
+        {
+            Console.WriteLine("Interface First Print Method");
+        }
+
+        public void printSupplier()
+        {
+            Console.WriteLine("Interface Second Print Method");
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Customer c1 = new Customer();
+            c1.printCustomer();
+            c1.printSupplier();
+
+            //a reference ICustomer can point to Customer class
+            //cannot create instance of interface, but an interface reference variable can point to a derived class object
+            ICustomer cust = new Customer();
+            cust.printCustomer();
+        }
+    }
+}
