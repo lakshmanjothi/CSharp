@@ -1,0 +1,37 @@
+﻿using System;
+
+namespace MethodOverloading
+{
+    class Program
+    {
+        //Method overloading is allows a class to have multiple methods with the same name
+        //Methods can be overloaded based on number of parameters passed, different types of parameters (int, float, string, etc)
+        //and different kinds of parameters - out, ref, params
+        //Method overloading is not possible by using params 
+        static void Main(string[] args)
+        {
+            int Total;
+            Console.WriteLine("First Method Overloading");
+            Add(10, 12);
+            Console.WriteLine("Second Method Overloading {0}",Add(10.2f,12.2f));
+            Console.WriteLine("Third Method Overloading");
+            Add(30, 60, out Total);
+        }
+
+        public static void Add(int FN, int SN)
+        {
+            Console.WriteLine("Sum = {0}", FN + SN);
+        }
+
+        public static float Add(float FN, float SN)
+        {
+            return FN + SN;
+        }
+
+        public static void Add(int FN, int SN, out int Sum)
+        {
+            Console.WriteLine("Sum = {0}", FN + SN);
+            Sum = FN + SN;
+        }
+    }
+}
