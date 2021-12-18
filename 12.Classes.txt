@@ -1,0 +1,52 @@
+﻿using System;
+
+namespace Classes
+{
+    //classkeyword className
+    class Customer
+    {
+        string firstName;
+        string lastName;
+
+        //constructor is used to initialize the fields
+        //same name as class can take parameters, but will not return values
+        //this keyword refers to instance (object) of this class
+        //Constructor is automatically called when an instance of this class is created
+        //overloading constructor - can be overloaded by the number and type of parameters
+        public Customer() : this("No FirstName provided", "No LastName provided")
+        {
+
+        }
+        public Customer(string FirstName, string LastName)
+        {
+            this.firstName = FirstName;
+            this.lastName = LastName;
+        }
+        
+        public void PrintFullName()
+        {
+            Console.WriteLine("FullName is {0} {1}", this.firstName, this.lastName);
+        }
+
+        //Destructor - to clean up resources - does not take parameters - automatically called by garbage collector
+        //has a ~ symbol
+        ~Customer()
+        {
+            Console.WriteLine("Destructor called");
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Class consists of data and behavior
+            //Class data is represented by it's Fields
+            //Class behavior is represented by it's Methods
+            Customer c2 = new Customer();
+            c2.PrintFullName();
+
+            Customer c1 = new Customer("Lakshman","Jothi");
+            c1.PrintFullName();
+        }
+    }
+}
