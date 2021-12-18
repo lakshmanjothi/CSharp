@@ -1,0 +1,38 @@
+﻿using System;
+
+namespace ForLoop
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] numbers = new int[3];
+            numbers[0] = 101;
+            numbers[1] = 102;
+            numbers[2] = 103;
+
+            //using while loop
+            //int i = 0;
+            //while (i < numbers.Length)
+            //{
+            //    Console.WriteLine(numbers[i]);
+            //    i++;
+            //}
+
+            //using for loop
+            Console.WriteLine("Using For Loop");
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                Console.WriteLine(numbers[i]);
+            }
+
+            //using for each loop - used to iterate through a collection
+            //no index out of range exception - we don't need to know how many elements are in a collection
+            Console.WriteLine("Using For Each Loop");
+            foreach (int k in numbers)
+            {
+                Console.WriteLine(k);
+            }
+        }
+    }
+}
