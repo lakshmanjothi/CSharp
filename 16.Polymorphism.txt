@@ -1,0 +1,64 @@
+﻿using System;
+
+namespace Polymorphism
+{
+    //polymorphism allows you to invoke derived class methods through a base class reference during runtime
+    //In the base class the method is declared as virtual
+    //In the derived class the method is declared as override
+    //virtual keyword means the method can be overridden in any derived class
+    class Program
+    {
+        public class Employee
+        {
+            public string firstName = "Lakshman";
+            public string lastName = "Jothi";
+
+            //virtual it indicated any derived class can override this method
+            public virtual void printFullName()
+            {
+                Console.WriteLine(firstName + " " + lastName);
+            }
+        }
+
+        public class PartTimeEmployee:Employee
+        {
+            //type override and space and select the method to implement
+            //if there is no implementation of same method then base method will be implemented
+            public override void printFullName()
+            {
+                Console.WriteLine(firstName + " " + lastName + " -Part Time");
+            }
+        }
+
+        public class FullTimeEmployee : Employee
+        {
+            public override void printFullName()
+            {
+                Console.WriteLine(firstName + " " + lastName + " -Full Time");
+            }
+        }
+
+        public class TemporaryEmployee : Employee
+        {
+            public override void printFullName()
+            {
+                Console.WriteLine(firstName + " " + lastName + " -Temporary");
+            }
+        }
+        static void Main(string[] args)
+        {
+            //array of objects
+            Employee[] emparray = new Employee[4];
+            emparray[0] = new Employee();
+            emparray[1] = new PartTimeEmployee();
+            emparray[2] = new FullTimeEmployee();
+            emparray[3] = new TemporaryEmployee();
+
+            //foreach(datatype variablename in arrayname)
+            foreach(Employee e in emparray)
+            {
+                e.printFullName();
+            }
+        }
+    }
+}
