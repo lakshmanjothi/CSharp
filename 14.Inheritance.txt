@@ -1,0 +1,89 @@
+﻿using System;
+
+namespace Inheritance
+{
+    //base class
+    public class Employee
+    {
+        public string firstName;
+        public string lastName;
+        public string email;
+
+        public void PrintFullName()
+        {
+            Console.WriteLine(firstName + " " + lastName);
+        }
+    }
+
+    //1st derived class
+    public class FullTimeEmployee : Employee
+    {
+        public float yearlySalary;
+    }
+
+    //2nd derived class
+    public class PartTimeEmployee : Employee
+    {
+        public float hourlySalary;
+    }
+
+    //multi-level inheritance
+    public class ContractEmployee: PartTimeEmployee
+    {
+        public float dailyRate;
+    }
+
+    public class ParentClass
+    {
+        //by default parameter less constructor will be called
+        public ParentClass()
+        {
+            Console.WriteLine("Parent class constructor");
+        }
+        //base is used in dervied class constructor to invoke the second constructor
+        public ParentClass(string Message)
+        {
+            Console.WriteLine(Message);
+        }
+    }
+
+    public class ChildClass : ParentClass
+    {
+        //base is used to invoke the second constructor
+        public ChildClass(): base("Message from derived class for the second constructor")
+        {
+            Console.WriteLine("Child class constructor");
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //reusability
+            //all the common fields, properties, methods in the base class whick allows resuability
+            //in the derived class , it can have fields, properties, methods that are specific to them
+            //C# supports single-class implementation - only one base class
+            //but it supports multi-level inheritance
+            //c# supports multiple interface inheritance
+            //child class is a specialization of base class
+            //Base classes are automatically instantiated before derived classes
+            //Parent class constructor executes before child class constructor
+            FullTimeEmployee fte = new FullTimeEmployee();
+            fte.firstName = "Lakshman";
+            fte.lastName = "Jothi";
+            fte.email = "hello@example.com";
+            fte.yearlySalary = 49000f;
+            fte.PrintFullName();
+
+            PartTimeEmployee pte = new PartTimeEmployee();
+            pte.firstName = "Santhanalakshmi";
+            pte.lastName = "Rajagopal";
+            pte.email = "world@example.com";
+            pte.hourlySalary = 200f;
+            pte.PrintFullName();
+
+            ChildClass cc = new ChildClass();
+
+        }
+    }
+}
