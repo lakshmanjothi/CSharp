@@ -1,0 +1,53 @@
+﻿using System;
+
+namespace WhileLoop
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //While Loop
+            //Console.Write output in a single line
+            //To exit a loop use condition to evaluates true.
+            //Checks the condition first and statements are executed
+            Console.WriteLine("While Loop Example");
+            Console.WriteLine("Enter your Target");
+            int UserTarget = int.Parse(Console.ReadLine());
+            int Start = 0;
+            while (Start <= UserTarget)
+            {
+                Console.Write(Start + " ");
+                Start += 2;
+            }
+
+            //Do-While Loop
+            //String.Empty instead of ""
+            //checks condition at the end of the loop
+            //executes the statements atleast once
+            Console.WriteLine("");
+            Console.WriteLine("Do While Loop Example");
+            string UserChoice = "";
+            do
+            {
+                Console.WriteLine("Enter your Number");
+                int UserNumber = int.Parse(Console.ReadLine());
+                int Inititate = 0;
+                while (Inititate <= UserNumber)
+                {
+                    Console.Write(Inititate + " ");
+                    Inititate += 2;
+                }
+                Console.WriteLine("");
+                do
+                {
+                    Console.WriteLine("Do you want to continue - Y or N");
+                    UserChoice = Console.ReadLine().ToUpper();
+                    if (UserChoice != "Y" && UserChoice != "N")
+                    {
+                        Console.WriteLine("Invalid Choice, Please enter Y or N");
+                    }
+                } while (UserChoice != "Y" && UserChoice != "N");
+            } while (UserChoice == "Y");
+        }
+    }
+}
