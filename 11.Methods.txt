@@ -1,0 +1,121 @@
+﻿using System;
+
+namespace Methods
+{
+    class Program
+    {
+        //Methods also called Functions
+        //Structure of a Function
+        //[attributes]
+        //access-modifiers returntype functionname (parameters)
+        //{
+        //    functionbody
+        //}
+        //return type - any data type or void
+        //Static Method
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter the number");
+            int number = int.Parse(Console.ReadLine());
+            //create an instance of the class Program to access an instance function
+            Program p = new Program();
+            Console.WriteLine("Output from Instance method");
+            p.EvenNumbersInstance(number);
+
+            //To access a static function use the class name to call the function
+            Console.WriteLine("Output from Static method");
+            Program.EvenNumbersStatic(number);
+            int total = p.Add(10, 20);
+            Console.WriteLine("Total numbers from a return funtion {0}", total);
+
+            //Call the value parameter method
+            //using Program.SimpleMethod or simply SimpleMethod
+            int i = 0;
+            SimpleMethod(i);
+            Console.WriteLine("Passing by value {0}", i);
+
+            //call the reference parameter method
+            int k = 0;
+            AnotherSimpleMethod(ref k);
+            Console.WriteLine("Passing by reference {0}", k);
+
+            //out parameter
+            int Total = 0;
+            int Product = 0;
+            Calculate(10, 20, out Total, out Product);
+            Console.WriteLine("Sum {0} and Product {1}", Total, Product);
+
+            //parameter array - arguments
+            int[] Numbers = new int[3];
+            Numbers[0] = 1;
+            Numbers[1] = 2;
+            Numbers[2] = 3;
+            ParamsMethod(Numbers);
+            ParamsMethod(1, 2, 3, 4, 5);
+        }
+        //Instance function
+        public void EvenNumbersInstance(int Target)
+        {
+            int Start = 0;
+            while (Start <= Target)
+            {
+                Console.WriteLine(Start);
+                Start = Start + 2;
+            }
+        }
+
+        //Static function
+        public static void EvenNumbersStatic(int Target)
+        {
+            int Start = 0;
+            while (Start <= Target)
+            {
+                Console.WriteLine(Start);
+                Start = Start + 2;
+            }
+        }
+
+        //To return from the function
+        public int Add(int i, int j)
+        {
+            return (i + j);
+        }
+
+        //Method/Function parameters
+        //Value parameters - creates a copy of the parameter passed, so modifications does not affect each other
+        //Reference Parameters - Refers to the same variable, and if there is a change it reflects on both variables 
+        //Out parameters - to return more than one value since return can have only one return datatype
+        //Parameter Arrays - using params keyword and should be last one in method declaration, takes list of arguments or array
+
+        //Value parameter
+        public static void SimpleMethod(int j)
+        {
+            j = 101;
+
+        }
+
+        //Reference parameter using ref keyword
+        public static void AnotherSimpleMethod(ref int j)
+        {
+            j = 101;
+        }
+
+        //Out parameter - no return type it should be void
+        public static void Calculate(int FN, int SN, out int Sum, out int Product)
+        {
+            Sum = FN + SN;
+            Product = FN * SN;
+        }
+
+        //Parameter Arrays
+        //to make array optional use paramas keyword - parameter
+        public static void ParamsMethod(params int[] Numbers)
+        {
+            Console.WriteLine("There are {0} elements", Numbers.Length);
+            foreach(int i in Numbers)
+            {
+                Console.WriteLine(i);
+            }
+        }
+    }
+}
