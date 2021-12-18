@@ -1,0 +1,76 @@
+﻿using System;
+
+namespace Properties
+{
+    public class Student
+    {
+        //using getter and setter method to enforce validation
+        //using private Encapsulation to hide the fields of a class
+        private int id;
+        private string name;
+        private int passMark = 35;
+        //setter method for id
+        public void SetId(int Id)
+        {
+            if (Id <= 0)
+            {
+                throw new Exception("Student id cannot be negative");
+            }
+            else
+            {
+                this.id = Id;
+            }
+        }
+        //getter method for id
+        public int GetId()
+        {
+            return id;
+        }
+
+        //setter method for Name
+        public void SetName(string Name)
+        {
+            if (string.IsNullOrWhiteSpace(Name))
+            {
+                throw new Exception("Name cannot be null or empty");
+            }
+            else
+            {
+                this.name = Name;
+            }
+        }
+        //getter method for Name
+        public string GetName()
+        {
+            //if (string.IsNullOrWhiteSpace(this.name))
+            //{
+            //    return "No Name";
+            //}
+            //else
+            //{
+            //    return this.name;
+            //}
+            return string.IsNullOrWhiteSpace(this.name) ? "No Name" : this.name;
+        }
+
+        //getter method for passMark - like readonly by not setting the set method
+        //setter method only makes the property write only
+        //get and set method makes the property read/write 
+        public int GetPassMark()
+        {
+            return this.passMark;
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Student c1 = new Student();
+            c1.SetId(101);
+            c1.SetName("Mark");
+            Console.WriteLine("Student Id {0}", c1.GetId());
+            Console.WriteLine("Student Name {0}", c1.GetName());
+            Console.WriteLine("Pass Mark {0}", c1.GetPassMark());
+        }
+    }
+}
