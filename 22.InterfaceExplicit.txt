@@ -1,0 +1,63 @@
+﻿using System;
+
+namespace InterfaceExplicit
+{
+    //when a class is inheriting from two interfaces
+    //when two interface has same method we need to use explicit implementation of interface
+    interface ICustomer
+    {
+        void print();
+    }
+
+    interface ISupplier
+    {
+        void print();
+        void print1();
+    }
+
+    class Customer : ICustomer, ISupplier
+    {
+        //public void print()
+        //{
+        //    Console.WriteLine("ICustomer Interface implementation");
+        //}
+        //to implement explicitly the methods from two interfaces
+        //without the access modifier
+        void ICustomer.print()
+        {
+            Console.WriteLine("ICustomer Interface implementation");
+        }
+
+        void ISupplier.print()
+        {
+            Console.WriteLine("ISupplier Interface implementation");
+        }
+        //default implementation of ISupplier interface print1 method
+        public void print1()
+        {
+            Console.WriteLine("ISupplier Interface default Implementation");
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Customer c1 = new Customer();
+            //another way to call an interface method
+            //object reference variable is typecasted to interface reference variable to get the method
+            //can only be accessed using interface reference variable and not by class reference variable
+            ((ICustomer)c1).print();
+            ((ISupplier)c1).print();
+
+            //another way of implementing explicit interface
+            ICustomer cust = new Customer();
+            cust.print();
+            ISupplier supp = new Customer();
+            supp.print();
+
+            //to get a default interface method like ISupplier print1 method as a default to the customer class
+            Customer c2 = new Customer();
+            c2.print1();
+        }
+    }
+}
