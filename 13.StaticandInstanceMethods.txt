@@ -1,0 +1,57 @@
+﻿using System;
+
+class Circle
+{
+    //fields
+    public static float PI;
+    int Radius;
+
+    //static constructor to intialize the static field
+    //does not have access modifier
+    //static constructor are automatically called only one once
+    //it is called before instance constructor called
+    static Circle()
+    {
+        Circle.PI = 3.141f;
+    }
+
+    //constructor
+    public Circle(int radius)
+    {
+        this.Radius = radius;
+    }
+
+    //static method
+    //public static void print()
+    //{
+       
+    //}
+
+    //Functions or methods
+    public float CalculateArea()
+    {
+        return Circle.PI * this.Radius * this.Radius;
+    }
+}
+
+namespace StaticandInstance
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //static constructor called before creating the instance
+            Console.WriteLine(Circle.PI);
+            //Console.WriteLine("Enter the radius");
+            //int radius = int.Parse(Console.ReadLine());
+            Circle c1 = new Circle(5);
+           // Circle.print();
+            float area1 = c1.CalculateArea();
+            Console.WriteLine("Area {0}", area1);
+
+            Circle c2 = new Circle(6);
+            float area2 = c2.CalculateArea();
+            Console.WriteLine("Area {0}", area2);
+        }
+    }
+}
