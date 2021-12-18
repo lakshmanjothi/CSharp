@@ -1,0 +1,82 @@
+﻿using System;
+
+namespace Encapsulation
+{
+    class student
+    {
+        private int id;
+        private string name;
+        private int passMark = 35;
+        private string city;
+
+        //get and set methods without logic for city
+        public string City
+        {
+            get
+            {
+                return this.city;
+            }
+            set
+            {
+                this.city = value;
+            }
+        }
+
+        //get and set methods using auto implemented property and
+        //we dont want to delare as a private because as a default it was created as private
+        public string Email { get; set; }
+
+        //set and get using property
+        //class definition matches the private int id
+        //Read write property
+        public int Id
+        {
+            set
+            {
+                //keyword "value" receives the value from the user when setting 
+                this.id = (value <= 0) ? throw new Exception("Student Id cannot be negative") : value;
+            }
+            get
+            {
+                return this.id;
+            }
+        }
+
+        //Read write property
+        public string Name
+        {
+            set
+            {
+                this.name = string.IsNullOrWhiteSpace(value) ? throw new Exception("Name cannot be Null") : value;
+            }
+            get
+            {
+                return string.IsNullOrWhiteSpace(name) ? "No Name" : this.name;
+            }
+        }
+
+        //Read only property - passmark - only get method
+        public int PassMark
+        {
+            get
+            {
+                return this.passMark;
+            }
+        }
+        //Write only property - only set method
+        //By using properties we can access them like public fields
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            student c1 = new student();
+            c1.Id = 200;
+            c1.Email = "abc@example.com";
+            Console.WriteLine("Id of the student {0}", c1.Id);
+            Console.WriteLine("Name of the student {0}", c1.Name);
+            Console.WriteLine("Passmark of the Student {0}", c1.PassMark);
+            Console.WriteLine("Email of the student is {0}", c1.Email);
+        }
+    }
+}
