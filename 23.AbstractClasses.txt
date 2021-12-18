@@ -1,0 +1,64 @@
+﻿using System;
+
+namespace AbstractClasses
+{
+    //abstract keyword to create a abstract class and field
+    //abstract class are incomplete
+    //cannot create a instance of a abstract class
+    //can only be used a base class
+    //abstract class cannot be sealed - abstract means it can only be used as base class
+    //sealed means it cannot be used as base class
+    //can contain fields, methods, properties in abstract class
+    //abstract class members are private by default
+    public abstract class Customer
+    {
+        public abstract void Print();
+
+        public void Print1()
+        {
+            Console.WriteLine("Method from abstract class");
+        }
+
+    }
+    
+    //If the class inherits from abstract class then the class should provide implementation for all thw abstract members
+    public class Supplier1 : Customer
+    {
+        //override keyword to implement the abstract class method
+        public override void Print()
+        {
+            Console.WriteLine("Abstract method Implementation");
+        }
+
+    }
+
+    //if the class does ot wish to provide implementation for all the abstract members inherited from the abstract class
+    //then the class has to be marked as abstract
+    public abstract class Supplier2 : Customer
+    {
+    }
+
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //parent class refernce variable can point to derived class 
+            Customer c1 = new Supplier1();
+            c1.Print();
+            c1.Print1();
+
+            //second method
+            Supplier1 s1 = new Supplier1();
+            s1.Print();
+        }
+    }
+}
+
+//Differences between abstract class and interfaces\
+//abstract class can have implementation of some of its methods
+//but interfaces can't have implementation for any of its members
+//abstract class can have access modifiers but interfaces cannot have access modifiers
+//abstract class can have fields but interfaces cannot have fields
+//interface can inherit from other interface only
+//abstract class can inherit from another abstract classes or interface
