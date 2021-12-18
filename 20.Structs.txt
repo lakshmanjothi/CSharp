@@ -1,0 +1,58 @@
+﻿using System;
+
+namespace Structs
+{
+    //Structs are like classes and can have private fields, public properties, constructors and methods
+    public struct Customer
+    {
+        private int id;
+        private string name;
+
+        public int Id
+        {
+            get { return this.id; }
+            set { this.id = value; }
+        }
+
+        //select the name property, right click and refactoring to encapsulate the field
+        public string Name { get => name; set => name = value; }
+
+        public Customer(int Id, string Name)
+        {
+            this.id = Id;
+            this.name = Name;
+        }
+
+        public void printDetails()
+        {
+            Console.WriteLine("Customer ID is {0} and Name is {1}", this.id, this.name);
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //using constructor to pass the value
+            Customer c1 = new Customer(101, "Mark");
+            c1.printDetails();
+            //object intializer syntax to initialize a struct or a class
+            Customer c2 = new Customer()
+            {
+                Id = 102,
+                Name = "John"
+            };
+            c2.printDetails();
+        }
+    }
+}
+//Difference between struct and class
+//Struct is a value type and class is a reference type
+//Struct are stored on stack, where as classes are stored in heap
+//value type holds their value in memeory where they are declared and destroyed after the scope is lost
+//Reference types holds a reference to an object in memory and reference variable is destroyed after the scope is lost and destroyed completely by Garabage Collector
+//While copying a struct to another struct - a new copy is created and modification on onse struct will not affect the other struct
+//while copying a class to another class - only the reference variable is copied and it points to the same object in the heap, modifications in one variable will have a affect the other class variable
+//structs cannot have destructors and cannot have explicit parameter less constructor
+//structs and class cannot inherit from struct (structs are sealed types)
+//structs cannot inherit
+//structs and class can inherit from interface
