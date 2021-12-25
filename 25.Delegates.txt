@@ -1,0 +1,24 @@
+using System;
+using System.Collections.Generic;
+
+namespace Delegates
+{
+    //Delegate declaration - holds a reference to function which has the same signature
+    public delegate void printStrDelegate(string Message);
+    class Program
+    {
+        //Delegate is a type safe function pointer - reference type
+        public static void printStr(String strMessage)
+        {
+            Console.WriteLine(strMessage);
+        }
+
+        static void Main(string[] args)
+        {
+            //create instance of a delegate to point a function
+            printStrDelegate prtstr = new printStrDelegate(printStr);
+            prtstr("Hello from Delegate");
+        }
+    }
+
+}
