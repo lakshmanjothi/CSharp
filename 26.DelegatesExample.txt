@@ -3,10 +3,14 @@ using System.Collections.Generic;
 
 namespace Delegates
 {
+<<<<<<< HEAD
     //delegate declaration
     delegate bool IsPromotable(Employee emp);
 
     //class employee with auto implemented properties get and set	
+=======
+    delegate bool IsPromotable(Employee emp);
+>>>>>>> 5625687fb9a5b65223179593f2f2a911ebc3259d
     class Employee
     {
         public int ID { get; set; }
@@ -14,6 +18,7 @@ namespace Delegates
         public int Salary { get; set; }
         public int Experience { get; set; }
 
+<<<<<<< HEAD
         //takes list of employee class as parameter and method as a parameter using delegate
         public static void promoteEmployee(List<Employee> EmployeeList, IsPromotable isEligibleToPromote)
         {
@@ -21,6 +26,12 @@ namespace Delegates
             foreach (Employee employee in EmployeeList)
             {
 		//passing each employee to delegate to check for employee experience
+=======
+        public static void promoteEmployee(List<Employee> EmployeeList, IsPromotable isEligibleToPromote)
+        {
+            foreach (Employee employee in EmployeeList)
+            {
+>>>>>>> 5625687fb9a5b65223179593f2f2a911ebc3259d
                 if (isEligibleToPromote(employee))
                 {
                     Console.WriteLine(employee.Name + " promoted");
@@ -34,25 +45,37 @@ namespace Delegates
 
         static void Main(string[] args)
         {
+<<<<<<< HEAD
             //list of employee class	
+=======
+>>>>>>> 5625687fb9a5b65223179593f2f2a911ebc3259d
             List<Employee> empList = new List<Employee>();
             empList.Add(new Employee() { ID = 101, Name = "Ross", Salary = 5000, Experience = 5 });
             empList.Add(new Employee() { ID = 102, Name = "Rachel", Salary = 4000, Experience = 4 });
             empList.Add(new Employee() { ID = 103, Name = "Monica", Salary = 6000, Experience = 6 });
             empList.Add(new Employee() { ID = 104, Name = "Chandler", Salary = 3000, Experience = 3 });
 
+<<<<<<< HEAD
 	    //create instance of the delegate
             IsPromotable delPromote = new IsPromotable(Promote);
             Employee.promoteEmployee(empList, Promote);
 
 	    //Inline lambda expression - Employee.promoteEmployee(empList, emp => emp.Experience >=5)
+=======
+            IsPromotable delPromote = new IsPromotable(Promote);
+            Employee.promoteEmployee(empList,Promote);
+>>>>>>> 5625687fb9a5b65223179593f2f2a911ebc3259d
         }
 
         public static bool Promote(Employee emp)
         {
+<<<<<<< HEAD
             //if (emp.Experience >= 5) { return true; } else { return false; }
             //(ifcondition) ? then statement : else statement;
             return (emp.Experience >= 5) ? true : false;
+=======
+            if (emp.Experience >= 5) { return true; } else { return false; }
+>>>>>>> 5625687fb9a5b65223179593f2f2a911ebc3259d
         }
     }
 
