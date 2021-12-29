@@ -44,6 +44,7 @@ namespace Delegates
 	    //create instance of the delegate
             IsPromotable delPromote = new IsPromotable(Promote);
             Employee.promoteEmployee(empList, Promote);
+
 	    //Inline lambda expression - Employee.promoteEmployee(empList, emp => emp.Experience >=5)
         }
 
